@@ -1,9 +1,9 @@
 flask-mongo-app
 ===============
 
-A Python Flask Web App Development Skeleton w/ mongoDB
+A Python Flask Web App Development Skeleton using mongoDB
 
-(I'm a n00b, just getting started on this...)
+I'm a n00b, just getting started on this to learn some tools.
 
 Try it out!
 -----------
@@ -18,6 +18,7 @@ _Point your browser at_
 ####Requires:
 * [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads/) -- `sudo apt-get install virtualbox-4.2`
+* [ansible](https://github.com/ansible/ansible/) -- Automatically installs in vm.
 
 ####Built On:
 * [Flask](http://flask.pocoo.org) -- Python microframework web app engine
@@ -32,7 +33,6 @@ _Point your browser at_
     * http://leafletjs.com/
     * http://maps.stamen.com/#toner/12/37.7706/-122.3782
 
-
 Contributing
 ------------
 
@@ -41,7 +41,7 @@ Contributing
 3. Commit your changes (`git commit -am "Added Snarkdown"`)
 4. Push to the branch (`git push origin my_markup`)
 5. Open a [Pull Request][1]
-6. Enjoy a slice of mushroom and wait
+6. Enjoy a few plumphelmets while you wait
 
 [1]: http://github.com/github/markup/pulls
 
