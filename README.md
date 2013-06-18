@@ -3,27 +3,23 @@ flask-mongo-app
 
 A Python Flask Web App Development Skeleton w/ mongoDB
 
-### Quick Version
-_Bring up the virtualmachine and provision the server:_
-    vagrant up
+(I'm a n00b, just getting started on this...)
 
 ### Try it out!
-_Point your browser at:_
-    http://localhost:5000/
+_Bring up the virtualmachine and provision the server_
+	vagrant up
+_Point your browser at_
+	http://localhost:5000/
 
 ####Requires:
-* Vagrant
-* VirtualBox
+* [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads/) -- `sudo apt-get install virtualbox-4.2`
 
-####Flask - Python based microframework for Web development
-* http://flask.pocoo.org
-
-####mongoDB - noSQL Database
-* http://www.mongodb.org/
-* http://flask-pymongo.readthedocs.org/en/latest/
-
-####Javascript Libraries
-* Charts & Graphs:
+####Built On:
+* [Flask](http://flask.pocoo.org) -- Python microframework web app engine
+* [mongoDB](http://mongodb.org) -- noSQL database
+* [Flask-PyMongo](http://flask-pymongo.readthedocs.org/en/latest/) -- bridges Flask and PyMongo
+* Javascript Charts & Graphs:
     * https://github.com/mbostock/d3/wiki/Gallery
     * http://square.github.io/crossfilter/ 
     * http://bl.ocks.org/tjdecke/5558084
