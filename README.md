@@ -3,7 +3,7 @@ flask-mongo-app
 
 A Python Flask Web App Development Skeleton using mongoDB
 
-I'm a n00b, just getting started on this to learn some tools.
+I'm a n00b, just getting started on this to learn some tools, so bear with me as I piece all of this together.  Currently the system provisions itself and starts running the hello world flask app.  I'll tie in the db stuf and js one day...
 
 Try it out!
 -----------
@@ -14,10 +14,6 @@ Try it out!
 _Point your browser at_
 
     http://localhost:5000/
-
-####Notes:
-* mongodb stores its data files in /var/lib/mongodb/
-* mongodb stores its log files in /var/log/mongodb/
 
 ####Requires:
 * [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
@@ -37,13 +33,10 @@ _Point your browser at_
     * http://leafletjs.com/
     * http://maps.stamen.com/#toner/12/37.7706/-122.3782
 
-How it works
-------------
-1. Vagrant brings up a fresh Ubuntu precise32 box using VirtualBox. 
-2. bootstrap.sh runs:
-    * adjust locales to use UTF8
-    * makes sure we're loading from testing
-    * apt-get update 
+####Notes:
+* bootstrap.sh does a one-time install of ansible to get the ball rolling
+* mongodb stores its data files in /var/lib/mongodb/
+* mongodb stores its log files in /var/log/mongodb/
 
 
 Contributing
