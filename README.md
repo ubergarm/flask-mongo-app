@@ -38,6 +38,14 @@ _Point your browser at_
 * mongodb stores its data files in /var/lib/mongodb/
 * mongodb stores its log files in /var/log/mongodb/
 
+####My workflow:
+* git config --global user.name 'Your Name'
+* git config --global user.email your@email
+* git pull
+* edit some code
+* git add <new files>
+* git commit -am 'fixed some bugs'
+* git push -u origin master
 
 Contributing
 ------------
