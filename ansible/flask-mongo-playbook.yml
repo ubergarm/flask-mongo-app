@@ -1,0 +1,57 @@
+---
+#this ansible playbook will provision the flask-mongo-app
+- name: Set up the flask-mongo-app system
+  hosts: servers
+  user: vagrant
+  sudo: yes
+  tasks:
+#FIXME this guy seemed to hang... 
+#  - name: have vagrant keep itself up to date
+#    action: apt pkg=vagrant state=latest
+
+  - name: install python-flask
+    action: apt pkg=python-flask state=latest
+
+  #TODO clean this up with apt-key call
+  - name: fetch mongodb apt repo key
+#    action: apt-key url=https://keyserver.ubuntu.com id=7F0CEB10 state=present
+    action: shell apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+
+  #TODO clean this up with apt_repository call
+  - name: install mongodb apt sources.list
+#     action: apt_repository repo='deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'
+    action: shell echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/10gen.list creates=/etc/apt/sources.list.d/10gen.list
+
+  - name: install mongodb
+    action: apt pkg=mongodb-10gen state=latest update_cache=yes
+  
+  - name: make sure mongodb is running
+    action: service name=mongodb state=started
+  
+# TODO add this at some point
+# http://www.ansibleworks.com/docs/modules.html
+#  - name: setup mongodb_user
+#    action: mongodb_user
+
+  - name: install pymongo
+    action: apt pkg=python-pymongo state=latest
+
+  - name: install supervisor daemon
+    action: apt pkg=supervisor state=latest
+
+  - name: update supervisord.conf file to watch our app
+    action: lineinfile dest=/etc/supervisor/supervisord.conf regexp='^\[program:flask-mongo-app\]' line='[program:flask-mongo-app]' state=present
+
+  - name: update supervisord.conf file to watch our app
+    action: lineinfile dest=/etc/supervisor/supervisord.conf regexp='^command=\/vagrant\/app\/app.py' line='command=/vagrant/app/app.py' state=present
+
+  - name: make sure supervisor is running and picks up latest .conf
+    action: service name=supervisor state=restarted
+
+#  - this already happens when supervisor comes up
+#  - name: keep flask app up and running
+    #action: command python /vagrant/app/app.py &
+    #action: supervisorctl name=flask-mongo-app state=started
+  
+  - name: give it a try!
+    action: debug msg="Point your browser to http://localhost:5000/"
