@@ -15,6 +15,10 @@ _Point your browser at_
 
     http://localhost:5000/
 
+####Notes:
+* mongodb stores its data files in /var/lib/mongodb/
+* mongodb stores its log files in /var/log/mongodb/
+
 ####Requires:
 * [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads/) -- `sudo apt-get install virtualbox-4.2`
@@ -32,6 +36,15 @@ _Point your browser at_
 * Mapping:
     * http://leafletjs.com/
     * http://maps.stamen.com/#toner/12/37.7706/-122.3782
+
+How it works
+------------
+1. Vagrant brings up a fresh Ubuntu precise32 box using VirtualBox. 
+2. bootstrap.sh runs:
+    * adjust locales to use UTF8
+    * makes sure we're loading from testing
+    * apt-get update 
+
 
 Contributing
 ------------

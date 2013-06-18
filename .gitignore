@@ -38,3 +38,6 @@ nosetests.xml
 # Vagrant stuff
 boxes/*
 .vagrant
+
+# vim stuff
+*.swp
