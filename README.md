@@ -5,11 +5,15 @@ A Python Flask Web App Development Skeleton w/ mongoDB
 
 (I'm a n00b, just getting started on this...)
 
-### Try it out!
-_Bring up the virtualmachine and provision the server_
-	vagrant up
+Try it out!
+-----------
+*Bring up the virtualmachine and provision the server*
+
+    vagrant up
+
 _Point your browser at_
-	http://localhost:5000/
+
+    http://localhost:5000/
 
 ####Requires:
 * [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
@@ -27,3 +31,17 @@ _Point your browser at_
 * Mapping:
     * http://leafletjs.com/
     * http://maps.stamen.com/#toner/12/37.7706/-122.3782
+
+
+Contributing
+------------
+
+1. Fork it.
+2. Create a branch (`git checkout -b my_markup`)
+3. Commit your changes (`git commit -am "Added Snarkdown"`)
+4. Push to the branch (`git push origin my_markup`)
+5. Open a [Pull Request][1]
+6. Enjoy a slice of mushroom and wait
+
+[1]: http://github.com/github/markup/pulls
+
