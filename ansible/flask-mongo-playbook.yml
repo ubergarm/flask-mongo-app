@@ -15,7 +15,9 @@
   #TODO clean this up with apt-key call
   - name: fetch mongodb apt repo key
 #    action: apt-key url=https://keyserver.ubuntu.com id=7F0CEB10 state=present
-    action: shell apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+    #action: shell apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+    #at work there is likely a firewall on port 11371 so force port 80 below if you get timeout errors
+    action: shell apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
   #TODO clean this up with apt_repository call
   - name: install mongodb apt sources.list
