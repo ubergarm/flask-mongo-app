@@ -18,9 +18,9 @@ _Point your browser at_
 ####Requires:
 * [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads/) -- `sudo apt-get install virtualbox-4.2`
-* [ansible](https://github.com/ansible/ansible/) -- Automatically installs in vm.
 
 ####Built On:
+* [ansible](https://github.com/ansible/ansible/) -- provisioner loaded up first
 * [Flask](http://flask.pocoo.org) -- Python microframework web app engine
 * [mongoDB](http://mongodb.org) -- noSQL database
 * [Flask-PyMongo](http://flask-pymongo.readthedocs.org/en/latest/) -- bridges Flask and PyMongo
@@ -56,7 +56,7 @@ _Point your browser at_
 
 ####Thanks to:
 * http://www.pixelmonkey.org/2013/03/13/rapid-web-prototyping-with-lightweight-tools
-http://ryaneshea.com/lightweight-python-apps-with-flask-twitter-bootstrap-and-heroku
+* http://ryaneshea.com/lightweight-python-apps-with-flask-twitter-bootstrap-and-heroku
 
 Contributing
 ------------
