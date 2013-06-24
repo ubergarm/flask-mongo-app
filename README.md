@@ -24,14 +24,21 @@ _Point your browser at_
 * [Flask](http://flask.pocoo.org) -- Python microframework web app engine
 * [mongoDB](http://mongodb.org) -- noSQL database
 * [Flask-PyMongo](http://flask-pymongo.readthedocs.org/en/latest/) -- bridges Flask and PyMongo
+* [leafletjs] (http://leafletjs.com/) -- javascript mapping
+* [bootstrap] (http://twitter.github.io/bootstrap/) -- pretty css
+
+####TODO:
 * Javascript Charts & Graphs:
     * https://github.com/mbostock/d3/wiki/Gallery
     * http://square.github.io/crossfilter/ 
     * http://bl.ocks.org/tjdecke/5558084
     * http://www.chartjs.org/
+    * http://www.flotcharts.org/flot/examples/
 * Mapping:
-    * http://leafletjs.com/
     * http://maps.stamen.com/#toner/12/37.7706/-122.3782
+
+####Issues:
+* sometimes have to vagrant ssh && sudo supervisorctl start python-mongo-app
 
 ####Notes:
 * bootstrap.sh does a one-time install of ansible to get the ball rolling
@@ -46,6 +53,10 @@ _Point your browser at_
 * git add <new files>
 * git commit -am 'fixed some bugs'
 * git push -u origin master
+
+####Thanks to:
+* http://www.pixelmonkey.org/2013/03/13/rapid-web-prototyping-with-lightweight-tools
+http://ryaneshea.com/lightweight-python-apps-with-flask-twitter-bootstrap-and-heroku
 
 Contributing
 ------------

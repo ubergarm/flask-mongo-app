@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %} - city by zip{% endblock %}
+{% block content %}
+<head>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+</head>
+  <div class="jumbo">
+    <h2>Based on <a href='http://leafletjs.com/'>leafletjs</a><h2>
+    <h3>Try your favorite zip code in url to see if it is in the mongodb.<h3>
+
+<div id="map" style="width: 600px; height: 400px"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<script>
+
+
+
+{% for record in records %}
+var map = L.map('map').setView({{ [ record.loc[1], record.loc[0] ] }}, 12);
+var marker = L.marker( {{ [ record.loc[1], record.loc[0] ] }} ).addTo(map);
+marker.bindPopup("<b>{{ record.city }} </b><br>Population: {{ record['pop'] }}.").openPopup();
+{% else %}
+var map = L.map('map').setView([40, -98], 3);
+alert("Sorry, no city data found...")
+{% endfor %}
+
+var popup = L.popup();
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+
+L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+		}).addTo(map);
+</script>
+
+{#
+<p>
+{% if records %}
+{{records}}
+<ul>
+{% for record in records %}
+<li>{{ record.city }}</li>
+<li>{{ [ record.loc[1], record.loc[0] ]}}</li>
+{% endfor %}
+</ul>
+<p>
+{% endif %}
+#}
+
+{% endblock %}

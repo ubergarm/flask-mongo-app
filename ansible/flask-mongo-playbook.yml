@@ -35,8 +35,22 @@
 #  - name: setup mongodb_user
 #    action: mongodb_user
 
+  - name: download zip code data set
+    #action: command wget -O /tmp/zips.json http://media.mongodb.org/zips.json
+    get_url: url=http://media.mongodb.org/zips.json dest=/tmp/zips.json
+
+#TODO make this next guy faster at being idempotent...  
+  - name: import zip code data set into mongodb, goes to 
+    action: command mongoimport --db app_db --collection zips --file /tmp/zips.json
+ 
+  - name: install python pip (package installer)
+    action: apt pkg=python-pip state=latest
+
   - name: install pymongo
     action: apt pkg=python-pymongo state=latest
+
+  - name: pip install Flask-PyMongo
+    action: pip name=Flask-PyMongo
 
   - name: install supervisor daemon
     action: apt pkg=supervisor state=latest
@@ -47,13 +61,15 @@
   - name: update supervisord.conf file to watch our app
     action: lineinfile dest=/etc/supervisor/supervisord.conf regexp='^command=\/vagrant\/app\/app.py' line='command=/vagrant/app/app.py' state=present
 
-  - name: make sure supervisor is running and picks up latest .conf
-    action: service name=supervisor state=restarted
+  - name: update supervisord.conf file to watch our app
+    action: lineinfile dest=/etc/supervisor/supervisord.conf regexp='^command=\/vagrant\/app\/app.py' line='autorestart=true' state=present
 
-#  - this already happens when supervisor comes up
-#  - name: keep flask app up and running
+  - name: make sure supervisor is running and picks up latest .conf
+    action: service name=supervisor state=started
+
+  - name: keep flask app up and running
     #action: command python /vagrant/app/app.py &
-    #action: supervisorctl name=flask-mongo-app state=started
+    action: supervisorctl name=flask-mongo-app state=started
   
   - name: give it a try!
     action: debug msg="Point your browser to http://localhost:5000/"

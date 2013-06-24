@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} - Home{% endblock %}
+{% block content %}
+
+{#
+{% if not session.logged_in %}
+     <p>You are not logged in.</p>
+{% else %}
+     <p>You are logged in.</p>
+{% endif %}
+#}
+
+<p>Welcome, please try a couple examples:</p>
+
+<ul>
+{% for link in links %}
+    <li><a href={{ link.url }}>{{ link.title }}</a></li>
+{% else %}
+    <li><em>No links found!</em></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
