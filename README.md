@@ -9,11 +9,20 @@ Try it out!
 -----------
 *Bring up the virtualmachine and provision the server*
 
-    vagrant up
+    $ vagrant up
 
 _Point your browser at_
 
     http://localhost:5000/
+
+_Cleaning up_
+
+    $ vagrant destroy
+
+_If you accidently delete the dir before doing destroy_
+
+    $ VBoxManage list vms
+    $ VBoxManage unregistervm flask-app-server –delete
 
 ####Requires:
 * [Vagrant](http://www.vagrantup.com/) -- `sudo apt-get install vagrant`
@@ -38,7 +47,7 @@ _Point your browser at_
     * http://maps.stamen.com/#toner/12/37.7706/-122.3782
 
 ####Issues:
-* sometimes have to vagrant ssh && sudo supervisorctl start python-mongo-app
+* sometimes have to vagrant ssh && sudo supervisorctl start flask-mongo-app
 
 ####Notes:
 * bootstrap.sh does a one-time install of ansible to get the ball rolling
